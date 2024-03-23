@@ -1,0 +1,20 @@
+
+body{
+    font-family: "Noto Sans KR", sans-serif;
+}
+
+.mytitle {
+    width: 100%;
+    height: 250px;
+
+    background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('./1254750.jpg');
+    background-position: top;
+    background-size: cover;
+
+    color: white;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}

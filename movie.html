@@ -1,0 +1,182 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+
+    <title>Spartapedia</title>
+    <link href="https://fonts.googleapis.com/css2?family=Gowun+Dodum&display=swap" rel="stylesheet">
+    <style>
+        * {
+            font-family: 'Gowun Dodum', sans-serif;
+        }
+
+        .mytitle {
+            width: 100%;
+            height: 250px;
+
+            background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://movie-phinf.pstatic.net/20210715_95/1626338192428gTnJl_JPEG/movie_image.jpg');
+            background-position: center;
+            background-size: cover;
+
+            color: white;
+
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .mytitle>button {
+            width: 200px;
+            height: 50px;
+
+            background-color: transparent;
+            color: white;
+
+            border-radius: 50px;
+            border: 1px solid white;
+
+            margin-top: 10px;
+        }
+
+        .mytitle>button:hover {
+            border: 2px solid white;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="mytitle">
+        <h1>My favorite movies</h1>
+        <button>Save a new movie</button>
+    </div>
+
+    <div class="container py-4 shadow my-4 bg-body-tertiary rounded">
+        <h3 class="fw-bold py-2 mb-2">How Much You Wanana Star Us.</h3>
+        <div class="mt-2 mb-3">
+            <input type="url" class="form-control" id="movieUrl" placeholder="Movie URL">
+        </div>
+        <div class="input-group mb-3">
+            <button class="btn btn-outline-secondary" type="button">Stars</button>
+            <select class="form-select" id="inputGroupSelect03" aria-label="Example select with button addon">
+                <option selected disabled>Choose Ratings...</option>
+                <option value="1">⭐</option>
+                <option value="2">⭐⭐</option>
+                <option value="3">⭐⭐⭐</option>
+            </select>
+        </div>
+        <div class="mb-3">
+            <textarea class="form-control" id="comment" rows="3" placeholder="Comment"></textarea>
+        </div>
+        <div class="d-flex gap-2">
+            <button class="btn btn-primary" type="button">Save</button>
+            <button class="btn btn-outline-secondary" type="button">Close</button>
+        </div>
+    </div>
+
+
+    <div class="mx-2 my-4">
+        <div class="d-flex justify-content-center align-items-center flex-wrap gap-4">
+            <div class="card shadow my-4 bg-body-tertiary rounded" style="width: 18rem;">
+                <img src="https://m.media-amazon.com/images/M/MV5BNDYxNjQyMjAtNTdiOS00NGYwLWFmNTAtNThmYjU5ZGI2YTI1XkEyXkFqcGdeQXVyMTMxODk2OTU@._V1_.jpg"
+                    class="card-img-top rounded" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title fw-bold">The Avengers</h5>
+                    <p class="card-text">The addition of Falcon to The Avengers programme aids Iron Man, Captain
+                        America, Thor, Hulk, Hawkeye and Black Widow in saving the world from threats no single hero
+                        could resist.</p>
+                    <p>⭐⭐⭐</p>
+                    <p>Based on: Avengers by; Stan Lee; Jack Kirby</p>
+                    <p> Editor: Fred Udell</p>
+                    <p> Genre: Superhero; Action; Adventure</p>
+                </div>
+            </div>
+
+            <div class="card shadow my-4 bg-body-tertiary rounded" style="width: 18rem;">
+                <img src="https://m.media-amazon.com/images/M/MV5BNDYxNjQyMjAtNTdiOS00NGYwLWFmNTAtNThmYjU5ZGI2YTI1XkEyXkFqcGdeQXVyMTMxODk2OTU@._V1_.jpg"
+                    class="card-img-top rounded" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title fw-bold">The Avengers</h5>
+                    <p class="card-text">The addition of Falcon to The Avengers programme aids Iron Man, Captain
+                        America, Thor, Hulk, Hawkeye and Black Widow in saving the world from threats no single hero
+                        could resist.</p>
+                    <p>⭐⭐⭐</p>
+                    <p>Based on: Avengers by; Stan Lee; Jack Kirby</p>
+                    <p> Editor: Fred Udell</p>
+                    <p> Genre: Superhero; Action; Adventure</p>
+                </div>
+            </div>
+
+            <div class="card shadow my-4 bg-body-tertiary rounded" style="width: 18rem;">
+                <img src="https://m.media-amazon.com/images/M/MV5BNDYxNjQyMjAtNTdiOS00NGYwLWFmNTAtNThmYjU5ZGI2YTI1XkEyXkFqcGdeQXVyMTMxODk2OTU@._V1_.jpg"
+                    class="card-img-top rounded" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title fw-bold">The Avengers</h5>
+                    <p class="card-text">The addition of Falcon to The Avengers programme aids Iron Man, Captain
+                        America, Thor, Hulk, Hawkeye and Black Widow in saving the world from threats no single hero
+                        could resist.</p>
+                    <p>⭐⭐⭐</p>
+                    <p>Based on: Avengers by; Stan Lee; Jack Kirby</p>
+                    <p> Editor: Fred Udell</p>
+                    <p> Genre: Superhero; Action; Adventure</p>
+                </div>
+            </div>
+
+            <div class="card shadow my-4 bg-body-tertiary rounded" style="width: 18rem;">
+                <img src="https://m.media-amazon.com/images/M/MV5BNDYxNjQyMjAtNTdiOS00NGYwLWFmNTAtNThmYjU5ZGI2YTI1XkEyXkFqcGdeQXVyMTMxODk2OTU@._V1_.jpg"
+                    class="card-img-top rounded" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title fw-bold">The Avengers</h5>
+                    <p class="card-text">The addition of Falcon to The Avengers programme aids Iron Man, Captain
+                        America, Thor, Hulk, Hawkeye and Black Widow in saving the world from threats no single hero
+                        could resist.</p>
+                    <p>⭐⭐⭐</p>
+                    <p>Based on: Avengers by; Stan Lee; Jack Kirby</p>
+                    <p> Editor: Fred Udell</p>
+                    <p> Genre: Superhero; Action; Adventure</p>
+                </div>
+            </div>
+
+            <div class="card shadow my-4 bg-body-tertiary rounded" style="width: 18rem;">
+                <img src="https://m.media-amazon.com/images/M/MV5BNDYxNjQyMjAtNTdiOS00NGYwLWFmNTAtNThmYjU5ZGI2YTI1XkEyXkFqcGdeQXVyMTMxODk2OTU@._V1_.jpg"
+                    class="card-img-top rounded" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title fw-bold">The Avengers</h5>
+                    <p class="card-text">The addition of Falcon to The Avengers programme aids Iron Man, Captain
+                        America, Thor, Hulk, Hawkeye and Black Widow in saving the world from threats no single hero
+                        could resist.</p>
+                    <p>⭐⭐⭐</p>
+                    <p>Based on: Avengers by; Stan Lee; Jack Kirby</p>
+                    <p> Editor: Fred Udell</p>
+                    <p> Genre: Superhero; Action; Adventure</p>
+                </div>
+            </div>
+
+
+            <div class="card shadow my-4 bg-body-tertiary rounded" style="width: 18rem;">
+                <img src="https://m.media-amazon.com/images/M/MV5BNDYxNjQyMjAtNTdiOS00NGYwLWFmNTAtNThmYjU5ZGI2YTI1XkEyXkFqcGdeQXVyMTMxODk2OTU@._V1_.jpg"
+                    class="card-img-top rounded" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title fw-bold">The Avengers</h5>
+                    <p class="card-text">The addition of Falcon to The Avengers programme aids Iron Man, Captain
+                        America, Thor, Hulk, Hawkeye and Black Widow in saving the world from threats no single hero
+                        could resist.</p>
+                    <p>⭐⭐⭐</p>
+                    <p>Based on: Avengers by; Stan Lee; Jack Kirby</p>
+                    <p> Editor: Fred Udell</p>
+                    <p> Genre: Superhero; Action; Adventure</p>
+                </div>
+            </div>
+        </div>
+</body>
+
+</html>

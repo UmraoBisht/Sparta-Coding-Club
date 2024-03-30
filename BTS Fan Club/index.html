@@ -16,6 +16,23 @@
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
         crossorigin="anonymous"></script>
 
+    <script>
+
+        $('document').ready(function () {
+            $.ajax({
+                type: 'GET',
+                url: 'http://spartacodingclub.shop/sparta_api/weather/seoul',
+                data: {},
+                success: function (response) {
+                    console.log(response);
+                    $('#city').text(response.city);
+                    $('#icon').attr('src', response.icon);
+                    $('#temperature').text(response.temp+"ºC");
+                }
+            })
+        });
+
+    </script>
 
     <title>Sparta Coding Club | Bootstrap Practice</title>
 </head>
@@ -23,6 +40,11 @@
 <body>
     <div class="mytitle">
         <h1>BlackPink Fan Book</h1>
+        <div class="d-flex pt-2 justify-content-center align-items-center text-center gap-1">
+            <h5 id="city"></h5>
+            <img id="icon" height="50px" src="#"></img>
+            <p class="font-semibold" id="temperature"></p>
+        </div>
     </div>
     <div class="d-flex flex-column justify-content-center align-items-center bg-info-subtle py-4">
         <div class="container py-4 border border-1 rounded" style="width: 30rem;">
@@ -38,16 +60,22 @@
         <div class="comments py-4 d-flex flex-column justify-content-center align-items-center">
 
             <div class="border border-1 rounded px-2 py-2 my-2" style="width: 30rem;">
-                <h5>Love Your New Album!</h5>
-                <span class="fw-medium">- BreadBoy800</span>
+                <blockquote>
+                    <h5>Love Your New Album!</h5>
+                    <footer class="fw-medium">- BreadBoy800</footer>
+                </blockquote>
             </div>
             <div class="border border-1 rounded px-2 py-2 my-2" style="width: 30rem;">
-                <h5>You're the Best!</h5>
-                <span class="fw-medium">- ClassicWonder19</span>
+                <blockquote>
+                    <h5>You're the Best!</h5>
+                    <footer class="fw-medium">- ClassicWonder19</footer>
+                </blockquote>
             </div>
             <div class="border border-1 rounded px-2 py-2 my-2" style="width: 30rem;">
-                <h5>Merry me!</h5>
-                <span class="fw-medium">- WonderBread10</span>
+                <blockquote>
+                    <h5>Merry me!</h5>
+                    <footer class="fw-medium">- WonderBread10</footer>
+                </blockquote>
             </div>
         </div>
     </div>

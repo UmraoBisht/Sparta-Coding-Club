@@ -1,14 +1,9 @@
-from pymongo import MongoClient
+from pymongo import MongoClient  # type: ignore
+import os
+from dotenv import load_dotenv  # type: ignore
+load_dotenv()
 
+url = os.getenv("MONGODB_URL")
+client = MongoClient(url)
+db = client.dbSparta
 
-url='mongodb+srv://umraobisht:5PRL0pgA745Z5Bf7@cluster0.xcolmec.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0'
-
-client=MongoClient(url)
-
-db=client.dbSparta
-
-# doc={
-#     "name":'umrao',
-#     "enroll_number":43
-# }
-# db.users.insert_one(doc)

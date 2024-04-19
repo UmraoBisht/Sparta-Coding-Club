@@ -1,9 +1,8 @@
 from pymongo import MongoClient  # type: ignore
-import os
 from dotenv import load_dotenv  # type: ignore
+import os
 load_dotenv()
-
-url = os.getenv("MONGODB_URL")
-client = MongoClient(url)
+# print(os.getenv('MONGODB_URI'))
+client=MongoClient(os.getenv('MONGODB_URI'))
 db = client.dbSparta
 

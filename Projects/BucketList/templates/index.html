@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -20,6 +21,7 @@
         * {
             font-family: 'Gowun Dodum', sans-serif;
         }
+
         .mypic {
             width: 100%;
             height: 200px;
@@ -35,9 +37,11 @@
             align-items: center;
             justify-content: center;
         }
-        .mypic > h1 {
+
+        .mypic>h1 {
             font-size: 30px;
         }
+
         .mybox {
             width: 95%;
             max-width: 700px;
@@ -45,6 +49,7 @@
             box-shadow: 0px 0px 10px 0px lightblue;
             margin: 20px auto;
         }
+
         .mybucket {
             display: flex;
             flex-direction: row;
@@ -52,10 +57,11 @@
             justify-content: space-between;
         }
 
-        .mybucket > input {
+        .mybucket>input {
             width: 70%;
         }
-        .mybox > li {
+
+        .mybox>li {
             display: flex;
             flex-direction: row;
             align-items: center;
@@ -64,76 +70,117 @@
             margin-bottom: 10px;
             min-height: 48px;
         }
-        .mybox > li > h2 {
+
+        .mybox>li>h2 {
             max-width: 75%;
             font-size: 20px;
             font-weight: 500;
             margin-right: auto;
             margin-bottom: 0px;
         }
-        .mybox > li > h2.done {
-            text-decoration:line-through
+
+        .mybox>li>h2.done {
+            text-decoration: line-through
         }
     </style>
     <script>
         $(document).ready(function () {
-            show_bucket();
+            show_tasks();
         });
-        function show_bucket(){
+        function show_tasks() {
             $.ajax({
                 type: "GET",
-                url: "/bucket",
+                url: "/task",
                 data: {},
-                success: function (response) {
-                    alert(response["msg"])
+                success: function (taskList) {
+                    console.log(taskList);
+                    taskList.map((task,index) => {
+                        if (!task.isDone) {
+                            $('#bucket-list').append(`
+                            <li key=${index+task.num}>
+                                <h2 >✅ ${task.task}</h2>
+                                <button onclick="done_task(${task.num})" type="button" class="btn btn-outline-primary">Done!</button>
+                                <button onclick="delete_task(${task.num})" type="button" class="mx-2 btn btn-outline-danger">delete!</button>
+                            </li>
+                                `
+                            )
+                        }else{
+                            $('#bucket-list').append(`
+                            <li key=${index+task.num}>
+                                <h2 class="done">✅ ${task.task}</h2>
+                                <button onclick="undo_task(${task.num})" type="button" class="btn btn-outline-primary">Undo!</button>
+                                <button onclick="delete_task(${task.num})" type="button" class="mx-2 btn btn-outline-danger">delete!</button>
+                            </li>
+                                `
+                            )
+                        }
+                    })
                 }
             });
         }
-        function save_bucket(){
+        function save_task() {
             $.ajax({
                 type: "POST",
-                url: "/bucket",
-                data: {sameple_give:'data'},
+                url: "/task",
+                data: { task: $("#task").val() },
                 success: function (response) {
                     alert(response["msg"])
+                    location.reload();
                 }
             });
         }
-        function done_bucket(num){
+        function done_task(num) {
             $.ajax({
                 type: "POST",
-                url: "/bucket/done",
-                data: {sameple_give:'data'},
+                url: "/task/done",
+                data: { doneTaskCount: num },
                 success: function (response) {
                     alert(response["msg"])
+                    location.reload();
                 }
             });
+        }
+        function undo_task(num) {
+            $.ajax({
+                type: "POST",
+                url: "/task/undo",
+                data: { undoTaskCount: num },
+                success: function (response) {
+                    alert(response["msg"])
+                    location.reload();
+                }
+            });
+        }
+
+    
+        function delete_task(num) {
+            if(confirm("Are you sure you want to delete")){
+                $.ajax({
+                    type: "POST",
+                    url: "/task/delete",
+                    data: { deleteTaskCount: num },
+                    success: function (response) {
+                        alert(response["msg"])
+                        location.reload();
+                    }
+                });
+            }
         }
     </script>
 </head>
+
 <body>
     <div class="mypic">
         <h1>My Bucketlist</h1>
     </div>
     <div class="mybox">
         <div class="mybucket">
-            <input id="bucket" class="form-control" type="text" placeholder="Enter your bucket list item here">
-            <button onclick="save_bucket()" type="button" class="btn btn-outline-primary">Save</button>
+            <input id="task" class="form-control" type="text" placeholder="Enter your bucket list item here">
+            <button onclick="save_task()" type="button" class="btn btn-outline-primary">Save</button>
         </div>
     </div>
     <div class="mybox" id="bucket-list">
-        <li>
-            <h2>✅ Bucket list number 1</h2>
-            <button onclick="done_bucket(5)" type="button" class="btn btn-outline-primary">Done!</button>
-        </li>
-				<li>
-            <h2>✅ Bucket list number 2</h2>
-            <button onclick="done_bucket(5)" type="button" class="btn btn-outline-primary">Done!</button>
-        </li>
-				<li>
-            <h2>✅ Bucket list number 3</h2>
-            <button onclick="done_bucket(5)" type="button" class="btn btn-outline-primary">Done!</button>
-        </li>
     </div>
 </body>
+
 </html>

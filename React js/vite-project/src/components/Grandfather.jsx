@@ -1,10 +1,10 @@
 import React from "react";
 import Mother from "./Mother";
 import "./grandfather.css";
-function Grandfather() {
+function Grandfather({grandFatherName}) {
   return (
     <div className="parent">
-      Grandfather,Im in Grandfather
+      Grandfather,I'm {grandFatherName} 
       <br></br>
       <Mother></Mother>
     </div>

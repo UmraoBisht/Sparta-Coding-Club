@@ -10,7 +10,10 @@ function AddTodo() {
   const [description, setDescription] = useState("");
   const addTodoHandler = (e) => {
     e.preventDefault();
-    dispatch(addTodo({ title, description }));
+    const canSave = Boolean(title) && Boolean(description);
+    if (canSave) {
+      dispatch(addTodo({ title, description }));
+    }
     setTitle("");
     setDescription("");
   };
@@ -53,14 +56,13 @@ const Form = styled.form`
   align-items: center;
 `;
 
-
 const Title = styled.label`
   padding: 0.4;
   font-weight: semibold;
   font-size: 1.3rem;
   text-align: center;
 `;
-const TitleInput=styled.input`
+const TitleInput = styled.input`
   padding: 0.6rem;
   font-size: 1rem;
   border: 1px solid black;
